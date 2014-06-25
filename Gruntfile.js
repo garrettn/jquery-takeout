@@ -113,4 +113,10 @@ module.exports = function (grunt) {
   });
   grunt.registerTask('serve', ['connect', 'watch']);
   grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+
+  grunt.registerTask('release', 'Alias for "bump-only", "changelog", and "bump-commit" tasks.', function (versionType) {
+    grunt.task.run('bump-only' + (versionType ? ':' + versionType : ''));
+    grunt.task.run('changelog');
+    grunt.task.run('bump-commit');
+  });
 };
