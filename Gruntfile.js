@@ -96,6 +96,11 @@ module.exports = function (grunt) {
         updateConfigs: ['pkg'],
         pushTo: ['origin']
       } 
+    },
+    changelog: {
+      options: {
+        
+      }
     }
   });
 
