@@ -94,6 +94,7 @@ module.exports = function (grunt) {
       options: {
         files: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
         updateConfigs: ['pkg'],
+        commitFiles: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
         pushTo: ['origin']
       } 
     },
