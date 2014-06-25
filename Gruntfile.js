@@ -89,6 +89,13 @@ module.exports = function (grunt) {
           port: 9000
         }
       }
+    },
+    bump: {
+      options: {
+        files: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
+        updateConfigs: ['pkg'],
+        pushTo: ['origin']
+      } 
     }
   });
 
