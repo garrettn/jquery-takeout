@@ -22,6 +22,8 @@
   $.fn.takeout = function () {
     return this.each(function () {
 
+      $(this).appendTo('body');
+
     });
   };
 
