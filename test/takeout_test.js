@@ -47,6 +47,7 @@
   });
 
   test('creates a placeholder for the element', function () {
+    expect(2);
 		this.$block.takeout();
     var $placeholder = this.$fixture.children().not('#block');
     ok($placeholder.length, 'should create a new child of #qunit-fixture');
