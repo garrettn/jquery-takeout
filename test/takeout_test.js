@@ -47,11 +47,20 @@
   });
 
   test('creates a placeholder for the element', function () {
-    expect(2);
+    expect(3);
+
+    this.$fixture.prepend('<div></div>').append('<div></div>');
+
+    var $otherChildren = this.$fixture.children().not('#block'),
+        indexOfBlock = this.$block.index();
+
 		this.$block.takeout();
-    var $placeholder = this.$fixture.children().not('#block');
+
+    var $placeholder = this.$fixture.children().not('#block').not($otherChildren);
+
     ok($placeholder.length, 'should create a new child of #qunit-fixture');
     ok($placeholder.hasClass('takeout-placeholder'), 'placeholder should have default class of "takeout-placeholder"');
+    strictEqual($placeholder.index(), indexOfBlock, 'placeholder should be in the original DOM position of the element');
   });
 
   test('gives placeholder same dimensions as element', function () {

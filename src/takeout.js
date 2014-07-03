@@ -28,10 +28,10 @@
           width = $this.width(),
           $placeholder = $('<div class="takeout-placeholder"></div>');
 
-      $this.appendTo('body');
+      $this.replaceWith($placeholder)
+      	.appendTo('body');
 
-      $placeholder.appendTo($parent)
-      	.height(height)
+      $placeholder.height(height)
       	.width(width);
 
     });
