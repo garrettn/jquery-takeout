@@ -23,7 +23,8 @@
   module('jQuery#takeout', {
     // This will run before each test in this module.
     setup: function() {
-      this.$block = $('<div id="block"></div>').appendTo('#qunit-fixture');
+      this.$fixture = $('#qunit-fixture');
+      this.$block = $('<div id="block"></div>').appendTo(this.$fixture);
     }
   });
 
@@ -43,6 +44,13 @@
     expect(1);
     this.$block.takeout();
     notEqual(this.$block.parent().attr('id'), 'qunit-fixture', 'should not be a child of #qunit-fixture');
+  });
+
+  test('creates a placeholder for the element', function () {
+		this.$block.takeout();
+    var $placeholder = this.$fixture.children().not('#block');
+    ok($placeholder.length, 'should create a new child of #qunit-fixture');
+    ok($placeholder.hasClass('takeout-placeholder'), 'placeholder should have default class of "takeout-placeholder"');
   });
 
 

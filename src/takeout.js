@@ -22,7 +22,12 @@
   $.fn.takeout = function () {
     return this.each(function () {
 
-      $(this).appendTo('body');
+      var $this = $(this),
+          $parent = $this.parent();
+
+      $this.appendTo('body');
+
+      $parent.append('<div class="takeout-placeholder"></div>');
 
     });
   };
