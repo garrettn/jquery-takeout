@@ -23,11 +23,16 @@
     return this.each(function () {
 
       var $this = $(this),
-          $parent = $this.parent();
+          $parent = $this.parent(),
+          height = $this.height(),
+          width = $this.width(),
+          $placeholder = $('<div class="takeout-placeholder"></div>');
 
       $this.appendTo('body');
 
-      $parent.append('<div class="takeout-placeholder"></div>');
+      $placeholder.appendTo($parent)
+      	.height(height)
+      	.width(width);
 
     });
   };

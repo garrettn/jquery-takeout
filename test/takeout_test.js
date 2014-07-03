@@ -54,5 +54,18 @@
     ok($placeholder.hasClass('takeout-placeholder'), 'placeholder should have default class of "takeout-placeholder"');
   });
 
+  test('gives placeholder same dimensions as element', function () {
+    expect(2);
+    var height = 10,
+        width = 30;
+
+    this.$block.css({height: height, width: width})
+    	.takeout();
+
+    var $placeholder = this.$fixture.children().not('#block');
+
+		strictEqual($placeholder.height(), height, 'placeholder should have same height as element');
+		strictEqual($placeholder.width(), width, 'placeholder should have same width as element');
+  });
 
 }(jQuery));
