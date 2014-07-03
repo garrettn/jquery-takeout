@@ -96,11 +96,11 @@ module.exports = function (grunt) {
         updateConfigs: ['pkg'],
         commitFiles: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
         pushTo: ['origin']
-      } 
+      }
     },
     changelog: {
       options: {
-        
+
       }
     }
   });
