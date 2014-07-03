@@ -27,6 +27,12 @@
     }
   });
 
+  test('is a function', function () {
+    expect(1);
+    // Can't hurt to make sure the function exists.
+    strictEqual(typeof this.elems.takeout, 'function', 'should be a function');
+  });
+
   test('is chainable', function() {
     expect(1);
     // Not a bad test to run on collection methods.
