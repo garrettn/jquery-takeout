@@ -29,10 +29,10 @@
           $placeholder = $('<div class="takeout-placeholder"></div>');
 
       $this.replaceWith($placeholder)
-      	.appendTo('body');
+        .appendTo('body');
 
       $placeholder.height(height)
-      	.width(width);
+        .width(width);
 
     });
   };
