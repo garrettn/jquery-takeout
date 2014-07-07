@@ -23,7 +23,6 @@
     return this.each(function () {
 
       var $this = $(this),
-          $parent = $this.parent(),
           height = $this.height(),
           width = $this.width(),
           $placeholder = $('<div class="takeout-placeholder"></div>');
