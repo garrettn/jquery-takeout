@@ -77,4 +77,14 @@
 		strictEqual($placeholder.width(), width, 'placeholder should have same width as element');
   });
 
+  test('positions element at original offset', function () {
+    expect(1);
+
+    var offset = this.$block.offset();
+
+    this.$block.takeout();
+
+    deepEqual(this.$block.offset(), offset, 'new offset should deep equal original offset');
+  });
+
 }(jQuery));
