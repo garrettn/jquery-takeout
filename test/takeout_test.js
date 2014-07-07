@@ -124,4 +124,16 @@
 
   });
 
+  test('accepts configuration options', function () {
+    expect(1);
+
+    this.$block.takeout({
+      placeholderClass: 'to-ph'
+    });
+
+    var $placeholder = this.$fixture.find('.to-ph');
+
+    ok($placeholder.length, 'placeholder should have class "to-ph"');
+  });
+
 }(jQuery));

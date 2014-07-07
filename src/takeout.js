@@ -21,7 +21,7 @@
 
   $.fn.takeout = function () {
 
-    var command, options;
+    var command, options, settings;
 
     if (typeof arguments[0] === 'string') {
       command = arguments[0];
@@ -29,6 +29,10 @@
     } else {
       options = arguments[0];
     }
+
+    settings = $.extend({
+      placeholderClass: 'takeout-placeholder'
+    }, options);
 
     if (command === 'undo') {
       return this.each(function () {
@@ -42,7 +46,7 @@
           throw new Error('Element does not have a reference to a placeholder.');
         }
 
-        $placeholder = $('.takeout-placeholder').filter(function () {
+        $placeholder = $('.' + settings.placeholderClass).filter(function () {
           return this === placeholderRef;
         });
 
@@ -68,7 +72,7 @@
             height = $this.height(),
             width = $this.width(),
             offset = $this.offset(),
-            $placeholder = $('<div class="takeout-placeholder"></div>')
+            $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)
               .width(width);
 
