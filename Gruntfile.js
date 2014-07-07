@@ -94,7 +94,7 @@ module.exports = function (grunt) {
       options: {
         files: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
         updateConfigs: ['pkg'],
-        commitFiles: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
+        commitFiles: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json', 'jquery.<%= pkg.name %>.js', 'jquery.<%= pkg.name %>.min.js'],
         pushTo: ['origin']
       }
     },
@@ -116,6 +116,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('release', 'Alias for "bump-only", "changelog", and "bump-commit" tasks.', function (versionType) {
     grunt.task.run('bump-only' + (versionType ? ':' + versionType : ''));
+    grunt.task.run('default');
     grunt.task.run('changelog');
     grunt.task.run('bump-commit');
   });
