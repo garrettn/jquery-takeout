@@ -1,4 +1,4 @@
-/*! takeout - v0.1.0 - 2014-07-07
+/*! takeout - v0.2.0 - 2014-07-07
 * https://github.com/garrettn/jquery-takeout
 * Copyright (c) 2014 Garrett Nay; Licensed MIT */
 (function (factory) {
@@ -14,9 +14,23 @@
   }
 }(function ($) {
 
-  $.fn.takeout = function (options) {
+  $.fn.takeout = function () {
 
-    if (options === 'undo') {
+    var command, options, settings;
+
+    if (typeof arguments[0] === 'string') {
+      command = arguments[0];
+      options = arguments[1];
+    } else {
+      options = arguments[0];
+    }
+
+    settings = $.extend({
+      appendTo: 'body',
+      placeholderClass: 'takeout-placeholder'
+    }, options);
+
+    if (command === 'undo') {
       return this.each(function () {
         var $this = $(this),
             placeholderRef = $this.data('takeout-placeholder'),
@@ -28,7 +42,7 @@
           throw new Error('Element does not have a reference to a placeholder.');
         }
 
-        $placeholder = $('.takeout-placeholder').filter(function () {
+        $placeholder = $('.' + settings.placeholderClass).filter(function () {
           return this === placeholderRef;
         });
 
@@ -54,12 +68,12 @@
             height = $this.height(),
             width = $this.width(),
             offset = $this.offset(),
-            $placeholder = $('<div class="takeout-placeholder"></div>')
+            $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)
               .width(width);
 
         $this.replaceWith($placeholder)
-          .appendTo('body')
+          .appendTo(settings.appendTo)
           .offset(offset)
           .data('takeout-placeholder', $placeholder.get(0));
 

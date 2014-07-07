@@ -1,3 +1,13 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2014-07-07)
+
+
+#### Features
+
+* accept configuration option for what element to append to ([c56916b0](https://github.com/garrettn/jquery-takeout/commit/c56916b09d5e65ec6b5e01010ec4d6ed60bb2611))
+* accept configuration option for placeholder class name(s) ([8b0c62e1](https://github.com/garrettn/jquery-takeout/commit/8b0c62e1e4c2ee10f2b67d33a52d5460c8948a05))
+
+
 <a name="0.1.0"></a>
 ## 0.1.0 (2014-07-07)
 
