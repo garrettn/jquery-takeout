@@ -91,4 +91,37 @@
     deepEqual(this.$block.offset(), offset, 'new offset should deep equal original offset');
   });
 
+  test('allows effects to be undone by calling \'undo\'', function () {
+    expect(5);
+    this.$block.takeout();
+
+    var $placeholder = this.$fixture.find('.takeout-placeholder'),
+        position = $placeholder.css('position'),
+        offset = $placeholder.offset();
+
+    deepEqual(this.$block.data('takeout-placeholder'), $placeholder.get(0), 'element should store placeholder in data');
+
+    this.$block.takeout('undo');
+
+    strictEqual(this.$block.parent().attr('id'), this.$fixture.attr('id'), 'calling \'undo\' should cause element be child of #qunit-fixture again');
+    ok(!this.$fixture.find('.takeout-placeholder').length, 'calling \'undo\' should remove placeholder');
+		strictEqual(this.$block.css('position'), position, 'element should get the same positioning as placeholder had');
+    deepEqual(this.$block.offset(), offset, 'element should have same offset as placeholder had');
+  });
+
+  test('throws errors on \'undo\' if parameters are bad', function () {
+    expect(2);
+
+    throws(function () {
+      this.$block.takeout('undo');
+    }, /Element does not have a reference to a placeholder\./, 'should throw an error if there is no stored reference to a placeholder');
+
+    throws(function () {
+      this.$block.data('takeout-placeholder',  document.createElement('div'));
+      this.$block.takeout('undo');
+    }, /Referenced placeholder does not exist in the document\./, 'should throw an error if the stored reference points to a placeholder that doesn\'t exist');
+
+
+  });
+
 }(jQuery));
