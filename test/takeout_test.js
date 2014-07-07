@@ -69,7 +69,7 @@
         width = 30;
 
     this.$block.css({height: height, width: width})
-    	.takeout();
+      .takeout();
 
     var $placeholder = this.$fixture.children().not('#block');
 
