@@ -125,7 +125,7 @@
   });
 
   test('accepts configuration options', function () {
-    expect(2);
+    expect(3);
 
     var $container = $('<div id="container"></div>')
       .appendTo(this.$fixture);
@@ -137,6 +137,10 @@
 
     deepEqual(this.$block.parent().get(0), $container.get(0), 'element should be appended to #container');
     ok(this.$fixture.find('.to-ph').length, 'placeholder should have class "to-ph"');
+
+    throws(function () {
+      this.$block.takeout('undo');
+    }, /Referenced placeholder does not exist in the document\./, 'should throw an error on \'undo\' when custom class is not specified');
   });
 
 }(jQuery));
