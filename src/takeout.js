@@ -31,6 +31,7 @@
     }
 
     settings = $.extend({
+      appendTo: 'body',
       placeholderClass: 'takeout-placeholder'
     }, options);
 
@@ -77,7 +78,7 @@
               .width(width);
 
         $this.replaceWith($placeholder)
-          .appendTo('body')
+          .appendTo(settings.appendTo)
           .offset(offset)
           .data('takeout-placeholder', $placeholder.get(0));
 

@@ -125,14 +125,19 @@
   });
 
   test('accepts configuration options', function () {
-    expect(1);
+    expect(2);
+
+    var $container = $('<div id="container"></div>')
+      .appendTo(this.$fixture);
 
     this.$block.takeout({
+      appendTo: $container,
       placeholderClass: 'to-ph'
     });
 
     var $placeholder = this.$fixture.find('.to-ph');
 
+    deepEqual(this.$block.parent().get(0), $container.get(0), 'element should be appended to #container');
     ok($placeholder.length, 'placeholder should have class "to-ph"');
   });
 
