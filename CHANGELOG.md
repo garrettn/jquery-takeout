@@ -1,3 +1,12 @@
+<a name="0.1.0"></a>
+## 0.1.0 (2014-07-07)
+
+
+#### Features
+
+* allow effects to be undone by calling 'undo' ([bcd90a2e](https://github.com/garrettn/jquery-takeout/commit/bcd90a2e66f34b424034cd265db50c60b547775c))
+
+
 <a name="0.0.2"></a>
 ### 0.0.2 (2014-07-07)
 
