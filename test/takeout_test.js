@@ -25,6 +25,10 @@
     setup: function() {
       this.$fixture = $('#qunit-fixture');
       this.$block = $('<div id="block"></div>').appendTo(this.$fixture);
+    },
+
+    teardown: function () {
+      this.$block.remove();
     }
   });
 
