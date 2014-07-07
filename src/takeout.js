@@ -19,9 +19,18 @@
   }
 }(function ($) {
 
-  $.fn.takeout = function (options) {
+  $.fn.takeout = function () {
 
-    if (options === 'undo') {
+    var command, options;
+
+    if (typeof arguments[0] === 'string') {
+      command = arguments[0];
+      options = arguments[1];
+    } else {
+      options = arguments[0];
+    }
+
+    if (command === 'undo') {
       return this.each(function () {
         var $this = $(this),
             placeholderRef = $this.data('takeout-placeholder'),
