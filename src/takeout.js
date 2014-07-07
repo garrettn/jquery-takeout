@@ -26,14 +26,13 @@
           height = $this.height(),
           width = $this.width(),
           offset = $this.offset(),
-          $placeholder = $('<div class="takeout-placeholder"></div>');
+          $placeholder = $('<div class="takeout-placeholder"></div>')
+            .height(height)
+            .width(width);
 
       $this.replaceWith($placeholder)
         .appendTo('body')
         .offset(offset);
-
-      $placeholder.height(height)
-        .width(width);
 
     });
   };
