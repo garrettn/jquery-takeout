@@ -1,4 +1,4 @@
-/*! takeout - v0.2.0 - 2014-07-07
+/*! takeout - v0.2.1 - 2014-07-08
 * https://github.com/garrettn/jquery-takeout
 * Copyright (c) 2014 Garrett Nay; Licensed MIT */
 (function (factory) {
@@ -65,8 +65,8 @@
       return this.each(function () {
 
         var $this = $(this),
-            height = $this.height(),
-            width = $this.width(),
+            height = $this.outerHeight(true),
+            width = $this.outerWidth(true),
             offset = $this.offset(),
             $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)

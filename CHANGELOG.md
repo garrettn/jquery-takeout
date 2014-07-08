@@ -1,3 +1,12 @@
+<a name="0.2.1"></a>
+### 0.2.1 (2014-07-08)
+
+
+#### Bug Fixes
+
+* account for margins on the element ([e50279c2](https://github.com/garrettn/jquery-takeout/commit/e50279c256a62423c9682a3693df2bfa6736ca48))
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2014-07-07)
 
