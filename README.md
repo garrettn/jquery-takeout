@@ -1,5 +1,7 @@
 # jQuery Takeout
 
+[![Build Status](https://travis-ci.org/garrettn/jquery-takeout.svg?branch=master)](https://travis-ci.org/garrettn/jquery-takeout)
+
 A jQuery plugin that takes an element out of its place in the DOM while keeping it in the same “physical” position on the document.
 
 Why? To tell you the truth, there probably aren’t many good reasons for wanting to do this. In my case, I was dealing with some weird rendering glitches caused by multiple CSS transforms, so I needed a way to take an element out of its place in the DOM while still making it look like it’s in the same place.
