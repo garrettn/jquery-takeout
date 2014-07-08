@@ -4,6 +4,8 @@
   "dependencies": {},
   "devDependencies": {
     "qunit": "~1.12.0",
-    "jquery": "~1.7"
+    "jquery": "~1.7",
+    "jquery-1edge": "jquery#~1",
+    "jquery-2edge": "jquery#~2"
   }
 }
