@@ -81,6 +81,19 @@
 		strictEqual($placeholder.width(), width, 'placeholder should have same width as element');
   });
 
+  test('accounts for margins on element', function () {
+    var height = 10,
+        width = 30,
+        margin = 5;
+    this.$block.css({height: height, width: width, margin: margin})
+      .takeout();
+
+    var $placeholder = this.$fixture.children().not('#block');
+
+		strictEqual($placeholder.outerHeight(), height + margin * 2, 'placeholder should have same height as element');
+		strictEqual($placeholder.outerWidth(), width + margin * 2, 'placeholder should have same width as element');
+  });
+
   test('positions element at original offset', function () {
     expect(1);
 

@@ -70,8 +70,8 @@
       return this.each(function () {
 
         var $this = $(this),
-            height = $this.height(),
-            width = $this.width(),
+            height = $this.outerHeight(true),
+            width = $this.outerWidth(true),
             offset = $this.offset(),
             $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)
