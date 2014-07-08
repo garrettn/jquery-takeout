@@ -6,6 +6,12 @@ Why? To tell you the truth, there probably aren’t many good reasons for wantin
 
 This plugin will probably be of little use to anybody else, but if you find yourself in a similar situation as I did, read on.
 
+## Requirements
+
+**jQuery >= 1.7**
+
+This plugin has been tested with jQuery 1.7.2, 1.11.1, and 2.1.1.
+
 ## Getting Started
 
 Download the [production version][min] or the [development version][max].
