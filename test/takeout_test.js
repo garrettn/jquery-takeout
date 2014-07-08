@@ -95,13 +95,17 @@
   });
 
   test('positions element at original offset', function () {
-    expect(1);
+    expect(2);
 
-    var offset = this.$block.offset();
+    var offset = this.$block.offset(),
+        newOffset;
 
     this.$block.takeout();
 
-    deepEqual(this.$block.offset(), offset, 'new offset should deep equal original offset');
+    newOffset = this.$block.offset();
+
+    strictEqual(Math.round(newOffset.top), Math.round(offset.top), 'new top offset (rounded) should equal original top offset (rounded)');
+    strictEqual(Math.round(newOffset.left), Math.round(offset.left), 'new left offset (rounded) should equal original left offset (rounded)');
   });
 
   test('allows effects to be undone by calling \'undo\'', function () {
