@@ -1,6 +1,13 @@
 {
-  "name": "takeout",
+  "name": "jquery-takeout",
   "version": "0.2.2",
+  "main": "dist/jquery.takeout.js",
+  "ignore": [
+    "src",
+    "test",
+    ".*",
+    "Gruntfile.js"
+  ],
   "dependencies": {},
   "devDependencies": {
     "qunit": "~1.12.0",
