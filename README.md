@@ -16,7 +16,13 @@ This plugin has been tested with jQuery 1.7.2, 1.11.1, and 2.1.1.
 
 ## Getting Started
 
-Download the [production version][min] or the [development version][max].
+Install with [Bower](http://bower.io):
+
+```sh
+bower install --save jquery-takeout
+```
+
+Or directly download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/garrettn/jquery-takeout/master/dist/jquery.takeout.min.js
 [max]: https://raw.github.com/garrettn/jquery-takeout/master/dist/jquery.takeout.js
