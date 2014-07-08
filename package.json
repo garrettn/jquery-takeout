@@ -1,9 +1,11 @@
 {
-  "name": "takeout",
+  "name": "jquery-takeout",
   "version": "0.2.2",
   "description": "jQuery Takeout",
   "keywords": [
-    "jquery-plugin"
+    "jquery-plugin",
+    "dom",
+    "position"
   ],
   "homepage": "https://github.com/garrettn/jquery-takeout",
   "bugs": "https://github.com/garrettn/jquery-takeout/issues",
