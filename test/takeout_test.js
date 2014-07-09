@@ -109,7 +109,7 @@
   });
 
   test('allows effects to be undone by calling \'undo\'', function () {
-    expect(5);
+    expect(6);
     this.$block.takeout();
 
     var $placeholder = this.$fixture.find('.takeout-placeholder'),
@@ -124,6 +124,7 @@
     ok(!this.$fixture.find('.takeout-placeholder').length, 'calling \'undo\' should remove placeholder');
 		strictEqual(this.$block.css('position'), position, 'element should get the same positioning as placeholder had');
     deepEqual(this.$block.offset(), offset, 'element should have same offset as placeholder had');
+    ok(!this.$block.data('takeout-placeholder'), 'should remove reference to placeholder in element data');
   });
 
   test('throws errors on \'undo\' if parameters are bad', function () {

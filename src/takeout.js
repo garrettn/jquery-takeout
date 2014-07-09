@@ -60,7 +60,8 @@
 
         $placeholder.replaceWith($this);
 
-        $this.css('position', position);
+        $this.removeData('takeout-placeholder')
+          .css('position', position);
 
         if (position !== 'static') {
           $this.offset(offset);
