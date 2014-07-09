@@ -1,3 +1,17 @@
+<a name="0.3.0"></a>
+## 0.3.0 (2014-07-09)
+
+
+#### Features
+
+* add Bower installation option
+
+
+#### Bug Fixes
+
+* **Gruntfile.js:** run QUnit on local files to avoid timeouts ([729e0c29](https://github.com/garrettn/jquery-takeout/commit/729e0c29ff214c61b605f1b8d6c135a64d6438df))
+
+
 <a name="0.2.2"></a>
 ### 0.2.2 (2014-07-08)
 
