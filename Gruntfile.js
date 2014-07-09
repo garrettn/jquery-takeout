@@ -25,8 +25,8 @@ module.exports = function (grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['src/<%= pkg.name %>.js'],
-        dest: 'dist/jquery.<%= pkg.name %>.js'
+        src: ['src/<%= pkg._pluginName %>.js'],
+        dest: 'dist/jquery.<%= pkg._pluginName %>.js'
       }
     },
     uglify: {
@@ -35,14 +35,16 @@ module.exports = function (grunt) {
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/jquery.<%= pkg.name %>.min.js'
+        dest: 'dist/jquery.<%= pkg._pluginName %>.min.js'
       }
     },
     qunit: {
       all: {
-        src: ['', '-1edge', '-2edge'].map(function (version) {
-          return 'test/takeout' + version + '.html';
-        })
+        options: {
+          urls: ['', '-1edge', '-2edge'].map(function (version) {
+            return 'http://localhost:9000/test/<%= pkg._pluginName %>' + version + '.html';
+          })
+        }
       }
     },
     jshint: {
@@ -92,9 +94,9 @@ module.exports = function (grunt) {
     },
     bump: {
       options: {
-        files: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json'],
+        files: ['package.json', 'bower.json', '<%= pkg._pluginName %>.jquery.json'],
         updateConfigs: ['pkg'],
-        commitFiles: ['package.json', 'bower.json', '<%= pkg.name %>.jquery.json', 'dist/jquery.<%= pkg.name %>.js', 'dist/jquery.<%= pkg.name %>.min.js', 'CHANGELOG.md'],
+        commitFiles: ['package.json', 'bower.json', '<%= pkg._pluginName %>.jquery.json', 'dist/jquery.<%= pkg._pluginName %>.js', 'dist/jquery.<%= pkg._pluginName %>.min.js', 'CHANGELOG.md'],
         pushTo: ['origin']
       }
     },
@@ -106,13 +108,13 @@ module.exports = function (grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'concat', 'uglify']);
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
   });
   grunt.registerTask('serve', ['connect', 'watch']);
-  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
 
   grunt.registerTask('release', 'Alias for "bump-only", "changelog", and "bump-commit" tasks.', function (versionType) {
     grunt.task.run('bump-only' + (versionType ? ':' + versionType : ''));
