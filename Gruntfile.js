@@ -40,11 +40,9 @@ module.exports = function (grunt) {
     },
     qunit: {
       all: {
-        options: {
-          urls: ['', '-1edge', '-2edge'].map(function (version) {
-            return 'http://localhost:9000/test/<%= pkg.name %>' + version + '.html';
-          })
-        }
+        src: ['', '-1edge', '-2edge'].map(function (version) {
+          return 'test/takeout' + version + '.html';
+        })
       }
     },
     jshint: {
@@ -108,13 +106,13 @@ module.exports = function (grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
   });
   grunt.registerTask('serve', ['connect', 'watch']);
-  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'qunit']);
 
   grunt.registerTask('release', 'Alias for "bump-only", "changelog", and "bump-commit" tasks.', function (versionType) {
     grunt.task.run('bump-only' + (versionType ? ':' + versionType : ''));
