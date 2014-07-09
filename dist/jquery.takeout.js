@@ -1,4 +1,4 @@
-/*! takeout - v0.2.2 - 2014-07-08
+/*! jquery-takeout - v0.3.1 - 2014-07-09
 * https://github.com/garrettn/jquery-takeout
 * Copyright (c) 2014 Garrett Nay; Licensed MIT */
 (function (factory) {

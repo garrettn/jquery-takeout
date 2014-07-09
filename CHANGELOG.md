@@ -1,3 +1,12 @@
+<a name="0.3.1"></a>
+### 0.3.1 (2014-07-09)
+
+
+#### Bug Fixes
+
+* REALLY fix the QUnit timeout issue ([b07dccf4](https://github.com/garrettn/jquery-takeout/commit/b07dccf4ee3e1c5914bab5c21dd4c23414810ff1))
+
+
 <a name="0.3.0"></a>
 ## 0.3.0 (2014-07-09)
 
