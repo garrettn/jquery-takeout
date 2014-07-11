@@ -1,4 +1,4 @@
-/*! jquery-takeout - v0.3.2 - 2014-07-11
+/*! jquery-takeout - v0.3.3 - 2014-07-11
 * https://github.com/garrettn/jquery-takeout
 * Copyright (c) 2014 Garrett Nay; Licensed MIT */
 (function (factory) {
@@ -77,6 +77,7 @@
 
         $this.replaceWith($placeholder)
           .appendTo(settings.appendTo)
+          .css('position', 'absolute')
           .offset(offset)
           .data({takeout: {
             placeholder: $placeholder.get(0),

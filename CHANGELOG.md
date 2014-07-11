@@ -1,3 +1,12 @@
+<a name="0.3.3"></a>
+### 0.3.3 (2014-07-11)
+
+
+#### Bug Fixes
+
+* set position to absolute to avoid leaving extra space ([c1a09971](https://github.com/garrettn/jquery-takeout/commit/c1a099713828cfb6aae6800bc9aa1e2a29ec499d))
+
+
 <a name="0.3.2"></a>
 ### 0.3.2 (2014-07-11)
 

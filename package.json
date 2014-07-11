@@ -1,7 +1,7 @@
 {
   "name": "jquery-takeout",
   "_pluginName": "takeout",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "jQuery Takeout",
   "keywords": [
     "jquery-plugin",
