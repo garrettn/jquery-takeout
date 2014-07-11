@@ -38,17 +38,21 @@
     if (command === 'undo') {
       return this.each(function () {
         var $this = $(this),
-            placeholderRef = $this.data('takeout-placeholder'),
+            data = $this.data('takeout'),
             $placeholder,
             position,
             offset;
 
-        if (!placeholderRef) {
+        if (!data) {
+          throw new Error('Element does not have any Takeout data.');
+        }
+
+        if (!data.placeholder) {
           throw new Error('Element does not have a reference to a placeholder.');
         }
 
         $placeholder = $('.' + settings.placeholderClass).filter(function () {
-          return this === placeholderRef;
+          return this === data.placeholder;
         });
 
         if (!$placeholder.length) {
@@ -60,7 +64,7 @@
 
         $placeholder.replaceWith($this);
 
-        $this.removeData('takeout-placeholder')
+        $this.removeData('takeout')
           .css('position', position);
 
         if (position !== 'static') {
@@ -81,7 +85,9 @@
         $this.replaceWith($placeholder)
           .appendTo(settings.appendTo)
           .offset(offset)
-          .data('takeout-placeholder', $placeholder.get(0));
+          .data({takeout: {
+            placeholder: $placeholder.get(0)
+          }});
 
       });
     }

@@ -116,7 +116,7 @@
         position = $placeholder.css('position'),
         offset = $placeholder.offset();
 
-    deepEqual(this.$block.data('takeout-placeholder'), $placeholder.get(0), 'element should store placeholder in data');
+    deepEqual(this.$block.data('takeout').placeholder, $placeholder.get(0), 'element should store placeholder in data');
 
     this.$block.takeout('undo');
 
@@ -124,18 +124,23 @@
     ok(!this.$fixture.find('.takeout-placeholder').length, 'calling \'undo\' should remove placeholder');
 		strictEqual(this.$block.css('position'), position, 'element should get the same positioning as placeholder had');
     deepEqual(this.$block.offset(), offset, 'element should have same offset as placeholder had');
-    ok(!this.$block.data('takeout-placeholder'), 'should remove reference to placeholder in element data');
+    ok(!this.$block.data('takeout'), 'should remove all Takeout data');
   });
 
   test('throws errors on \'undo\' if parameters are bad', function () {
-    expect(2);
+    expect(3);
 
     throws(function () {
+      this.$block.takeout('undo');
+    }, /Element does not have any Takeout data\./, 'should throw an error if there is no stored Takeout data');
+
+    throws(function () {
+      this.$block.data({takeout: {}});
       this.$block.takeout('undo');
     }, /Element does not have a reference to a placeholder\./, 'should throw an error if there is no stored reference to a placeholder');
 
     throws(function () {
-      this.$block.data('takeout-placeholder',  document.createElement('div'));
+      this.$block.data({takeout: {placeholder: document.createElement('div')}});
       this.$block.takeout('undo');
     }, /Referenced placeholder does not exist in the document\./, 'should throw an error if the stored reference points to a placeholder that doesn\'t exist');
 
