@@ -82,6 +82,7 @@
 
         $this.replaceWith($placeholder)
           .appendTo(settings.appendTo)
+          .css('position', 'absolute')
           .offset(offset)
           .data({takeout: {
             placeholder: $placeholder.get(0),
