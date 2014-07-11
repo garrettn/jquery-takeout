@@ -109,12 +109,18 @@
   });
 
   test('allows effects to be undone by calling \'undo\'', function () {
-    expect(6);
+    expect(8);
+
+    var blockElem = this.$block.get(0),
+        originalOffset = this.$block.offset(),
+        originalPosition = blockElem.style.position,
+        originalTop = blockElem.style.top,
+        originalLeft = blockElem.style.left,
+        $placeholder;
+
     this.$block.takeout();
 
-    var $placeholder = this.$fixture.find('.takeout-placeholder'),
-        position = $placeholder.css('position'),
-        offset = $placeholder.offset();
+    $placeholder = this.$fixture.find('.takeout-placeholder');
 
     deepEqual(this.$block.data('takeout').placeholder, $placeholder.get(0), 'element should store placeholder in data');
 
@@ -122,8 +128,10 @@
 
     strictEqual(this.$block.parent().attr('id'), this.$fixture.attr('id'), 'calling \'undo\' should cause element be child of #qunit-fixture again');
     ok(!this.$fixture.find('.takeout-placeholder').length, 'calling \'undo\' should remove placeholder');
-		strictEqual(this.$block.css('position'), position, 'element should get the same positioning as placeholder had');
-    deepEqual(this.$block.offset(), offset, 'element should have same offset as placeholder had');
+    deepEqual(this.$block.offset(), originalOffset, 'element should have same offset as before');
+    strictEqual(blockElem.style.position, originalPosition, 'element should have same position element style as before');
+    strictEqual(blockElem.style.top, originalTop, 'element should have same top element style as before');
+    strictEqual(blockElem.style.left, originalLeft, 'element should have same left element style as before');
     ok(!this.$block.data('takeout'), 'should remove all Takeout data');
   });
 

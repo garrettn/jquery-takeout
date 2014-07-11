@@ -39,9 +39,7 @@
       return this.each(function () {
         var $this = $(this),
             data = $this.data('takeout'),
-            $placeholder,
-            position,
-            offset;
+            $placeholder;
 
         if (!data) {
           throw new Error('Element does not have any Takeout data.');
@@ -59,17 +57,14 @@
           throw new Error('Referenced placeholder does not exist in the document.');
         }
 
-        position = $placeholder.css('position');
-        offset = $placeholder.offset();
-
         $placeholder.replaceWith($this);
 
-        $this.removeData('takeout')
-          .css('position', position);
+        // Restore all element styles
+        this.style.position = data.originalPosition;
+        this.style.top = data.originalTop;
+        this.style.left = data.originalLeft;
 
-        if (position !== 'static') {
-          $this.offset(offset);
-        }
+        $this.removeData('takeout');
       });
     } else {
       return this.each(function () {
@@ -78,6 +73,9 @@
             height = $this.outerHeight(true),
             width = $this.outerWidth(true),
             offset = $this.offset(),
+            position = this.style.position,
+            top = this.style.top,
+            left = this.style.left,
             $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)
               .width(width);
@@ -86,7 +84,10 @@
           .appendTo(settings.appendTo)
           .offset(offset)
           .data({takeout: {
-            placeholder: $placeholder.get(0)
+            placeholder: $placeholder.get(0),
+            originalPosition: position,
+            originalTop: top,
+            originalLeft: left
           }});
 
       });
