@@ -1,3 +1,13 @@
+<a name="0.3.2"></a>
+### 0.3.2 (2014-07-11)
+
+
+#### Bug Fixes
+
+* restore all element positioning styles on undo ([d07868d0](https://github.com/garrettn/jquery-takeout/commit/d07868d06a0ec16312719fbcb8135b6c8261e8c3))
+* remove reference to placeholder in element data on undo ([568bf8fc](https://github.com/garrettn/jquery-takeout/commit/568bf8fc1c94ce00c97d954bfba3e991a4ef2f0e))
+
+
 <a name="0.3.1"></a>
 ### 0.3.1 (2014-07-09)
 

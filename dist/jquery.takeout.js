@@ -1,4 +1,4 @@
-/*! jquery-takeout - v0.3.1 - 2014-07-09
+/*! jquery-takeout - v0.3.2 - 2014-07-11
 * https://github.com/garrettn/jquery-takeout
 * Copyright (c) 2014 Garrett Nay; Licensed MIT */
 (function (factory) {
@@ -33,33 +33,33 @@
     if (command === 'undo') {
       return this.each(function () {
         var $this = $(this),
-            placeholderRef = $this.data('takeout-placeholder'),
-            $placeholder,
-            position,
-            offset;
+            data = $this.data('takeout'),
+            $placeholder;
 
-        if (!placeholderRef) {
+        if (!data) {
+          throw new Error('Element does not have any Takeout data.');
+        }
+
+        if (!data.placeholder) {
           throw new Error('Element does not have a reference to a placeholder.');
         }
 
         $placeholder = $('.' + settings.placeholderClass).filter(function () {
-          return this === placeholderRef;
+          return this === data.placeholder;
         });
 
         if (!$placeholder.length) {
           throw new Error('Referenced placeholder does not exist in the document.');
         }
 
-        position = $placeholder.css('position');
-        offset = $placeholder.offset();
-
         $placeholder.replaceWith($this);
 
-        $this.css('position', position);
+        // Restore all element styles
+        this.style.position = data.originalPosition;
+        this.style.top = data.originalTop;
+        this.style.left = data.originalLeft;
 
-        if (position !== 'static') {
-          $this.offset(offset);
-        }
+        $this.removeData('takeout');
       });
     } else {
       return this.each(function () {
@@ -68,6 +68,9 @@
             height = $this.outerHeight(true),
             width = $this.outerWidth(true),
             offset = $this.offset(),
+            position = this.style.position,
+            top = this.style.top,
+            left = this.style.left,
             $placeholder = $('<div class="' + settings.placeholderClass + '"></div>')
               .height(height)
               .width(width);
@@ -75,7 +78,12 @@
         $this.replaceWith($placeholder)
           .appendTo(settings.appendTo)
           .offset(offset)
-          .data('takeout-placeholder', $placeholder.get(0));
+          .data({takeout: {
+            placeholder: $placeholder.get(0),
+            originalPosition: position,
+            originalTop: top,
+            originalLeft: left
+          }});
 
       });
     }
