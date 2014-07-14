@@ -1,3 +1,12 @@
+<a name="0.3.4"></a>
+### 0.3.4 (2014-07-14)
+
+
+#### Bug Fixes
+
+* throw an error if the element has already been taken out ([0cf4b5a4](https://github.com/garrettn/jquery-takeout/commit/0cf4b5a45ee5bc98f6565376df2bba19a555b1c2))
+
+
 <a name="0.3.3"></a>
 ### 0.3.3 (2014-07-11)
 
