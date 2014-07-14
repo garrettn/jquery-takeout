@@ -69,8 +69,13 @@
     } else {
       return this.each(function () {
 
-        var $this = $(this),
-            height = $this.outerHeight(true),
+        var $this = $(this);
+
+        if ($this.data('takeout')) {
+          throw new Error('Element has already been taken out.');
+        }
+
+        var height = $this.outerHeight(true),
             width = $this.outerWidth(true),
             offset = $this.offset(),
             position = this.style.position,

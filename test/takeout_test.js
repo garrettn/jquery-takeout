@@ -108,6 +108,15 @@
     strictEqual(Math.round(newOffset.left), Math.round(offset.left), 'new left offset (rounded) should equal original left offset (rounded)');
   });
 
+  test('throws an error if the element has already been taken out', function () {
+    expect(1);
+
+    throws(function () {
+      this.$block.takeout();
+      this.$block.takeout();
+    }, /Element has already been taken out\./, 'should throw an error if the element has been taken out already');
+  });
+
   test('allows effects to be undone by calling \'undo\'', function () {
     expect(8);
 
