@@ -2,7 +2,7 @@
   "name": "takeout",
   "title": "jQuery Takeout",
   "description": "A jQuery plugin that takes an element out of its place in the DOM while keeping it in the same position.",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "homepage": "https://github.com/garrettn/jquery-takeout",
   "author": {
     "name": "Garrett Nay",

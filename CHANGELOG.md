@@ -1,3 +1,12 @@
+<a name="0.4.0"></a>
+## 0.4.0 (2014-07-21)
+
+
+#### Features
+
+* no longer require custom class to be specified on 'undo' ([bab356cf](https://github.com/garrettn/jquery-takeout/commit/bab356cf36209021208e9f73e990a33ab6f0d942))
+
+
 <a name="0.3.4"></a>
 ### 0.3.4 (2014-07-14)
 
