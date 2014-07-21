@@ -90,9 +90,6 @@ $('#box').takeout({
 });
 ```
 
-Options can also be applied when you use `'undo'`. **This is especially important** if you have used a custom class on the placeholder element. You need to specify the same class when undoing, or else the placeholder won’t be found and the undo will fail.
-
-
 ## License
 
 This project is licensed under the terms of [the MIT License](LICENSE.txt).
