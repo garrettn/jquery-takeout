@@ -178,9 +178,9 @@
     deepEqual(this.$block.parent().get(0), $container.get(0), 'element should be appended to #container');
     ok(this.$fixture.find('.to-ph').length, 'placeholder should have class "to-ph"');
 
-    throws(function () {
-      this.$block.takeout('undo');
-    }, /Referenced placeholder does not exist in the document\./, 'should throw an error on \'undo\' when custom class is not specified');
+    this.$block.takeout('undo');
+
+    ok(!this.$fixture.find('.to-ph').length, 'should replace placeholder on \'undo\' when it has a custom class');
   });
 
 }(jQuery));

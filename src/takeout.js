@@ -19,23 +19,11 @@
   }
 }(function ($) {
 
-  $.fn.takeout = function () {
+  $.fn.takeout = function (options) {
 
-    var command, options, settings;
+    var settings;
 
-    if (typeof arguments[0] === 'string') {
-      command = arguments[0];
-      options = arguments[1];
-    } else {
-      options = arguments[0];
-    }
-
-    settings = $.extend({
-      appendTo: 'body',
-      placeholderClass: 'takeout-placeholder'
-    }, options);
-
-    if (command === 'undo') {
+    if (options === 'undo') {
       return this.each(function () {
         var $this = $(this),
             data = $this.data('takeout'),
@@ -49,7 +37,7 @@
           throw new Error('Element does not have a reference to a placeholder.');
         }
 
-        $placeholder = $('.' + settings.placeholderClass).filter(function () {
+        $placeholder = $('.' + data.placeholderClass).filter(function () {
           return this === data.placeholder;
         });
 
@@ -67,6 +55,12 @@
         $this.removeData('takeout');
       });
     } else {
+
+      settings = $.extend({
+        appendTo: 'body',
+        placeholderClass: 'takeout-placeholder'
+      }, options);
+
       return this.each(function () {
 
         var $this = $(this);
@@ -91,6 +85,7 @@
           .offset(offset)
           .data({takeout: {
             placeholder: $placeholder.get(0),
+            placeholderClass: settings.placeholderClass,
             originalPosition: position,
             originalTop: top,
             originalLeft: left
